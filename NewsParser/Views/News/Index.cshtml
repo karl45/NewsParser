@@ -1,0 +1,76 @@
+﻿@model IList<NewsParser.Models.News>
+
+@{
+    ViewBag.Title = "News";
+    Layout = "_Layout";
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form class="form">
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <input class="form-control" type="datetime-local" min="@ViewBag.From" max="@ViewBag.To" name="from" id="from" required/>
+
+                </div>
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <input class="form-control" type="datetime-local" min="@ViewBag.From" max="@ViewBag.To" name="to" id="to" required/>
+                </div>
+                @Html.AntiForgeryToken()
+                <button class="btn btn-outline-primary" type="button" id="filter" name="filter">Найти</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="container" id="content">
+                @foreach (var news in @Model)
+                {
+                    <div class="row mt-2">
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        @news.Theme
+                                    </h5>
+                                    <p class="card-text">
+                                        @news.Text
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    @news.NewsDate.Value.ToString()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div> 
+        </div>
+         <div class="col">
+             <form class="form pb-5">
+                 <div class="form-group">
+                     <label for="from">Текст:</label>
+                     <input class="form-control"  name="from" id="search_text" required/>
+                 </div>
+                 @Html.AntiForgeryToken()
+                 <button class="btn btn-outline-primary" type="button" id="search" name="search">Найти по тексту</button>
+             </form>
+             
+             <h4>Топ 10 часто встречающихся слов по всем новостям</h4>
+             <table class="table">
+                 <tr>
+                     <th>Слово</th>
+                     <th>Кол-во совпадений</th>
+                 </tr>
+                 <tbody id="rate">
+                    <tr>
+                     
+                    </tr>
+                 </tbody>
+             </table>
+         </div>
+    </div>
+</div>
+
+<script src="js/NewsFilter.js"></script>
+<script src="js/NewsSearch.js"></script>
+<script src="js/NewsTopTenWords.js"></script>
