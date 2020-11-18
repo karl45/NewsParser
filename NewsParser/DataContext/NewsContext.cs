@@ -10,7 +10,7 @@ namespace NewsParser.DataContext
 {
     public class NewsContext:DbContext
     {
-        private INewsParserServices _newsParserService;
+        private readonly INewsParserServices _newsParserService;
         public NewsContext(DbContextOptions<NewsContext> options,
             INewsParserServices parserService):base(options)
         { 
