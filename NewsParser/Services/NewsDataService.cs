@@ -85,7 +85,7 @@ namespace NewsParser.Services
                  {
                      lock (lockObj)// Пришлось прибегнуть к локировке так как сумма повторений постоянно менялась
                      {
-                         var clean_str = splitText[wordIndex]
+                         var cleanStr = splitText[wordIndex]
                              .Replace(". ", String.Empty)
                              .Replace(",", String.Empty)
                              .Replace("'", String.Empty)
@@ -93,9 +93,9 @@ namespace NewsParser.Services
                              .Replace("-", String.Empty)
                              .Replace("!", String.Empty); //очистка слова от разных знаков препинания
 
-                         if (!clean_str.Equals(String.Empty)) // к сожалению такие знаки как " - ", которые после фильтррации стали пустой строкой,  тоже посчитались словом во время сплита, поэтому они тоже убираются
-                             if (!countWord.TryAdd(clean_str, 1)) //инкремент на 1 поменял
-                                 countWord[clean_str] += 1; //происходило дублирование так как подставлялось общее значение через метод Count()
+                         if (!cleanStr.Equals(String.Empty)) // к сожалению такие знаки как " - ", которые после фильтррации стали пустой строкой,  тоже посчитались словом во время сплита, поэтому они тоже убираются
+                             if (!countWord.TryAdd(cleanStr, 1)) //инкремент на 1 поменял
+                                 countWord[cleanStr] += 1; //происходило дублирование так как подставлялось общее значение через метод Count()
                      }
                  });
 
