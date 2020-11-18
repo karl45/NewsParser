@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BIG\\source\\repos\\NewsParser\\NewsParser\\NewsParser.csproj",
+      "projectUniqueName": "C:\\Users\\BIG\\Desktop\\all_ok\\NewsParser\\NewsParser\\NewsParser.csproj",
       "projectName": "NewsParser",
-      "projectPath": "C:\\Users\\BIG\\source\\repos\\NewsParser\\NewsParser\\NewsParser.csproj",
+      "projectPath": "C:\\Users\\BIG\\Desktop\\all_ok\\NewsParser\\NewsParser\\NewsParser.csproj",
       "packagesPath": "C:\\Users\\BIG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BIG\\source\\repos\\NewsParser\\NewsParser\\obj\\",
+      "outputPath": "C:\\Users\\BIG\\Desktop\\all_ok\\NewsParser\\NewsParser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

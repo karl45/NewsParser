@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\BIG\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\BIG\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_NewsParser.926355593.00" t="ExcludeRecursive" />
-    <e p="C:\Users\BIG\source\repos\NewsParser" t="IncludeFlat">
+    <e p="C:\Users\BIG\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_NewsParser.1968450627.00" t="ExcludeRecursive" />
+    <e p="C:\Users\BIG\Desktop\all_ok\NewsParser" t="IncludeFlat">
       <e p="NewsParser" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -16,8 +16,10 @@
           <e p="NewsContext.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20201117160420_reinit_database.cs" t="Include" />
-          <e p="20201117160420_reinit_database.Designer.cs" t="Include" />
+          <e p="20201118161932_reinit_twice.cs" t="Include" />
+          <e p="20201118161932_reinit_twice.Designer.cs" t="Include" />
+          <e p="20201118162610_reinit_amp.cs" t="Include" />
+          <e p="20201118162610_reinit_amp.Designer.cs" t="Include" />
           <e p="NewsContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

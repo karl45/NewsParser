@@ -40,10 +40,10 @@ namespace NewsParser.Services
             return parsedNews;
         }
 
-        private async Task GetNewsFromSubUrl(string suburl)
+        private async Task GetNewsFromSubUrl(string subUrl)
         {
             var page = new HtmlWeb();
-            var doc = page.Load(Url+suburl);
+            var doc = page.Load(Url+subUrl);
             
             //статьи на странице с рубриками
             var articles = doc.DocumentNode
@@ -60,7 +60,7 @@ namespace NewsParser.Services
             var all_text = GetNewsSection(hrefs,Configuration.GetValue<string>("Parser:TextXPath"));
             var all_times = GetNewsSection(hrefs,Configuration.GetValue<string>("Parser:TimeXPath"));
             
-            int section_index = 0; // индекс для прохождения по списку
+            var section_index = 0; // индекс для прохождения по списку
 
             foreach (var article in articles)
             {
@@ -69,7 +69,7 @@ namespace NewsParser.Services
                 var themeFromPost = news_data[0];//секция с оглавлением
                     try 
                     {
-                        var news = new News(all_text[section_index].Replace("&quot;","'"), themeFromPost); //Замена на одинарные кавычки
+                        var news = new News(all_text[section_index].Replace("&quot;","'").Replace("&amp;","&"), themeFromPost); //Замена на одинарные кавычки
                         
                         news.Id = NewsId; // для миграции, метод HasData требует присовения Id несмотря на автоинкремент 
                         
@@ -82,10 +82,10 @@ namespace NewsParser.Services
                             //выбор времени из поста для дальнейшего инкремента к дате
                             var time = all_times[section_index].Split(",")[1].Trim(); //выбор именно времени  без учёта слова "Сегодня"
                             
-                            var time_span = TimeSpan.Parse(time); // Конвертация времени для добавления в текущую дату
+                            var timeSpan = TimeSpan.Parse(time); // Конвертация времени для добавления в текущую дату
                             
                             news.NewsDate = DateTime.ParseExact(dateFromPost, "yyyy-MM-dd", CultureInfo.InvariantCulture)
-                                            .Add(time_span);
+                                            .Add(timeSpan);
                         }
 
                         parsedNews.Add(news);
